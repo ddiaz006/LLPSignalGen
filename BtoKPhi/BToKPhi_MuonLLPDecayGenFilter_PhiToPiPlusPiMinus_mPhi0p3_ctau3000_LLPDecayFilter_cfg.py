@@ -1,1 +1,0 @@
-/afs/cern.ch/work/d/ddiaz/CMSSW_10_2_27/src/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000_LLPDecayFilter_cfg.py

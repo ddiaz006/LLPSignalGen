@@ -1,1 +1,0 @@
-/afs/cern.ch/work/d/ddiaz/CMSSW_10_2_27/src/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi1p0_ctau1000_cfg.py
