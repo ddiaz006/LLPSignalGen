@@ -1,0 +1,10 @@
+- cmsrel CMSSW_10_2_27
+- cd CMSSW_10_2_27/src
+- cmsenv
+- git cms-addpkg GeneratorInterface
+- mv MCLongLivedParticles.cc GeneratorInterface/GenFilters/src/
+- mv MCLongLivedParticles.h GeneratorInterface/GenFilters/interface/
+- mv CustomLLPEvtGenSettings GeneratorInterface/
+- scram b -j8 
+- may need to `source /cvmfs/cms.cern.ch/crab3/crab.sh`
+- then `python multi_crab_submit_BToKS_step0.py`
