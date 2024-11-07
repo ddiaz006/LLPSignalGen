@@ -25,8 +25,7 @@ if __name__ == '__main__':
     config.Data.inputDBS = 'global'
     config.Data.splitting = 'EventBased'
     config.Data.unitsPerJob = 200000 #500000 #gen filter efficiency is 6e-4, so 100K will give 60 events output
-    #config.Data.totalUnits = 2000000000 #5000000
-    config.Data.totalUnits = 200000 #5000000
+    config.Data.totalUnits = 2000000000 #5000000
     #config.Data.unitsPerJob = 1000 
     #config.Data.totalUnits = 10000000
     config.Data.publication = True
@@ -59,9 +58,9 @@ if __name__ == '__main__':
 
 
     ms_list = ["0p3"]
-    pl_list = ["300"]
-    batch="batch3"
-    pset_dir = "/afs/cern.ch/work/d/ddiaz/CMSSW_10_2_27/src/"
+    pl_list = ["30"]
+    batch="batch4"
+    pset_dir = "/afs/cern.ch/work/d/ddiaz/LLPSignalGen/CMSSW_10_2_27/src/"
     for i in range(len(mode_list)):
 	mode = mode_list[i]
 	for ms in ms_list: 
