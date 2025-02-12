@@ -52,13 +52,13 @@ if __name__ == '__main__':
     #############################################################################################
 
     #mode_list = ["BToKPhi_MuonLLPDecayGenFilter_PhiToPi0Pi0"]
-    #mode_list = ["BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus"]
     mode_list = ["BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus"]
+    #mode_list = ["BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus"]
 
 
 
-    ms_list = ["0p3"]
-    pl_list = ["30"]
+    ms_list = ["3p0"]
+    pl_list = ["3000"]
     batch="batch4"
     pset_dir = "/afs/cern.ch/work/d/ddiaz/LLPSignalGen/CMSSW_10_2_27/src/"
     for i in range(len(mode_list)):

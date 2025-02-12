@@ -47,20 +47,16 @@ if __name__ == '__main__':
 
     datasetToNameDict = {               
       
-        "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30/LLPs-crab_UL18_DR_step2_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30_batch4_v1-b403a189a2d057e62e59ed092120c7f4/USER":"UL18_DR_step3_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30_batch4_v1",
+        "/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_UL18_DR_step2_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1-b403a189a2d057e62e59ed092120c7f4/USER":"UL18_DR_step3_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1",
 
         #below not submitted yet       
-      
-      
-
-
         }
 
   
    #cat log5.txt | grep "Output dataset:" | awk '{print $3}' | awk -F'/' '{print "\""$1"/"$2"/"$3"/"$4"\":\"/store/group/lpclonglived/apresyan/privateProduction/DR/step3_RECOSIM/RunII_UL18/"$2"/batch1/v1/\","}'
 
     datasetToOutput = {       
-        "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30/LLPs-crab_UL18_DR_step2_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30_batch4_v1-b403a189a2d057e62e59ed092120c7f4/USER":"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step3/UL18_DR_step3/UL18_DR_step3_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30/batch4/",
+        "/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_UL18_DR_step2_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1-b403a189a2d057e62e59ed092120c7f4/USER":"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step3/UL18_DR_step3/UL18_DR_step3_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300/batch4/",
 
         #below not submitted yet 
       

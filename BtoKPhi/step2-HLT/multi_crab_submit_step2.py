@@ -54,11 +54,11 @@ if __name__ == '__main__':
 #cat log5.txt | grep "Output dataset:" | awk '{print $3}' | awk -F'/' '{print "\""$1"/"$2"/"$3"/"$4"\":\"UL18_DR_step2_"$2"_batch1_v1\","}'
 
     datasetToNameDict = {                  
-       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30/LLPs-crab_UL18_DR_step1_BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30_batch4_v1-a03b32ff24c52459822077d23898e252/USER":"UL18_DR_step2_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30_batch4_v1",
+       "/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_UL18_DR_step1_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1-a03b32ff24c52459822077d23898e252/USER":"UL18_DR_step2_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1",
         #Did not submit below      
         }
     datasetToOutput = {       
-       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30/LLPs-crab_UL18_DR_step1_BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30_batch4_v1-a03b32ff24c52459822077d23898e252/USER":"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step2/UL18_DR_step2_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau30/batch4/",
+       "/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_UL18_DR_step1_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1-a03b32ff24c52459822077d23898e252/USER":"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step2/UL18_DR_step2_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300/batch4/",
 
         #Did not submit below       
      
