@@ -21,14 +21,14 @@ if __name__ == '__main__':
     config.section_("Data")
 
     config.Data.inputDBS = 'phys03'
-    config.Data.splitting = 'Automatic'  #'FileBased'
+    config.Data.splitting = 'FileBased'
 
     #For QCD GEN-SIM samples
     #config.Data.inputDBS = 'global'
     #config.Data.splitting = 'LumiBased'
     #config.Data.lumiMask = 'my_lumi_mask_batch5.qcd.json'
 
-    config.Data.unitsPerJob = 181 #1 #when splitting is 'Automatic', this represents jobs target runtime(minimum 180)
+    config.Data.unitsPerJob = 1 #1440 #181 #1 #when splitting is 'Automatic', this represents jobs target runtime(minimum 180)
     config.Data.publication = True
     config.Data.ignoreLocality = True
 
@@ -43,6 +43,7 @@ if __name__ == '__main__':
     def submit(config):
         try:
             crabCommand('submit', config = config)
+            #crabCommand('submit', config = config, dryrun=True)
         except HTTPException as hte:
             print "Failed submitting task: %s" % (hte.headers)
         except ClientException as cle:
@@ -53,32 +54,18 @@ if __name__ == '__main__':
     #############################################################################################
 #Command to get the dictionary from crab log
 #cat log5.txt | grep "Output dataset:" | awk '{print $3}' | awk -F'/' '{print "\""$1"/"$2"/"$3"/"$4"\":\"Fall18_DR_step1_"$2"_batch1_v1\","}'
-# /BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300_GENSIM_batch3-e45192c9b89d03ee1db662cee489dd46/USER
-    datasetToNameDict = {                  
-                  
-    
-"/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000_GENSIM_batch4-e45192c9b89d03ee1db662cee489dd46/USER":"UL18_DR_step1_BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000_batch4_v1",
-
-        #Did not submit below      
-     
-       
-      
-    
-        }
-
 #Command to get the dictionary from crab log
-
 #cat log5.txt | grep "Output dataset:" | awk '{print $3}' | awk -F'/' '{print "\""$1"/"$2"/"$3"/"$4"\":\"/store/group/lpclonglived/apresyan/privateProduction/DR/step1/RunII_UL18/GENSIM/"$2"/batch1/v1/\","}'
-
-
+# /BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300_GENSIM_batch3-e45192c9b89d03ee1db662cee489dd46/USER
+    ct = 500
+    M = "0p5"
+    datasetToNameDict = {                  
+       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_GENSIM_batch4-e45192c9b89d03ee1db662cee489dd46/USER".format(M=M, ct=ct):"UL18_DR_step1_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_batch6_v1".format(M=M, ct=ct),
+        #Did not submit below      
+        }
     datasetToOutput = {       
-        
-       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000_GENSIM_batch4-e45192c9b89d03ee1db662cee489dd46/USER":"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step1/UL18_DR_step1_BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau3000/batch4/",
-
+       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_GENSIM_batch4-e45192c9b89d03ee1db662cee489dd46/USER".format(M=M, ct=ct):"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step1/UL18_DR_step1_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/batch6/".format(M=M, ct=ct),
         #Did not submit below       
-
-   
-     
         }
 
 
@@ -92,6 +79,7 @@ if __name__ == '__main__':
 
         config.JobType.numCores = 8
         config.JobType.maxMemoryMB = 16000
+        config.JobType.inputFiles = ['PU.txt']
         print(config.General.requestName)
         print(config.Data.inputDataset)
         print(config.Data.outLFNDirBase)
