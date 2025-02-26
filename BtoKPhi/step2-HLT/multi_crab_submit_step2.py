@@ -52,13 +52,17 @@ if __name__ == '__main__':
     #############################################################################################
 #Command to get the dictionary from crab log
 #cat log5.txt | grep "Output dataset:" | awk '{print $3}' | awk -F'/' '{print "\""$1"/"$2"/"$3"/"$4"\":\"UL18_DR_step2_"$2"_batch1_v1\","}'
+    ct = 3000
+    M = "3p0"
+    batch = 6
+    version = 2
 
     datasetToNameDict = {                  
-       "/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_UL18_DR_step1_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1-a03b32ff24c52459822077d23898e252/USER":"UL18_DR_step2_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1",
+       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/LLPs-crab_UL18_DR_step1_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_batch{B}_v{V}-a03b32ff24c52459822077d23898e252/USER".format(M=M, ct=ct, B=batch, V=version):"UL18_DR_step2_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_batch{B}_v{V}".format(M=M, ct=ct, B=batch, V=version),
         #Did not submit below      
         }
     datasetToOutput = {       
-       "/BToKPhi_MuonGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_UL18_DR_step1_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300_batch4_v1-a03b32ff24c52459822077d23898e252/USER":"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step2/UL18_DR_step2_BToKPhi_MuonGenFilterOnly_PhiToPiPlusPiMinus_mPhi0p3_ctau300/batch4/",
+       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/LLPs-crab_UL18_DR_step1_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_batch{B}_v{V}-a03b32ff24c52459822077d23898e252/USER".format(M=M, ct=ct, B=batch, V=version):"/store/group/LLPs/BtoKPhiSamples/privateProduction/DR/step2/UL18_DR_step2_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/batch{B}/".format(M=M, ct=ct, B=batch, V=version),
 
         #Did not submit below       
      
@@ -77,7 +81,7 @@ if __name__ == '__main__':
         config.Data.outLFNDirBase = output
 
         config.JobType.numCores = 1
-        config.JobType.maxMemoryMB = 3000
+        config.JobType.maxMemoryMB = 2500
         print(config.General.requestName)
         print(config.Data.inputDataset)
         print(config.Data.outLFNDirBase)

@@ -57,10 +57,10 @@ if __name__ == '__main__':
 #Command to get the dictionary from crab log
 #cat log5.txt | grep "Output dataset:" | awk '{print $3}' | awk -F'/' '{print "\""$1"/"$2"/"$3"/"$4"\":\"/store/group/lpclonglived/apresyan/privateProduction/DR/step1/RunII_UL18/GENSIM/"$2"/batch1/v1/\","}'
 # /BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi0p3_ctau300_GENSIM_batch3-e45192c9b89d03ee1db662cee489dd46/USER
-    ct = 500
-    M = "0p5"
+    ct = 10000
+    M = "3p0"
     datasetToNameDict = {                  
-       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_GENSIM_batch4-e45192c9b89d03ee1db662cee489dd46/USER".format(M=M, ct=ct):"UL18_DR_step1_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_batch6_v1".format(M=M, ct=ct),
+       "/BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}/LLPs-crab_Ul18_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_GENSIM_batch4-e45192c9b89d03ee1db662cee489dd46/USER".format(M=M, ct=ct):"UL18_DR_step1_BToKPhi_MuonLLPDecayGenFilter_PhiToPiPlusPiMinus_mPhi{M}_ctau{ct}_batch6_v2".format(M=M, ct=ct),
         #Did not submit below      
         }
     datasetToOutput = {       
@@ -77,8 +77,11 @@ if __name__ == '__main__':
         config.Data.inputDataset = dataset
         config.Data.outLFNDirBase = output
 
-        config.JobType.numCores = 8
-        config.JobType.maxMemoryMB = 16000
+        #config.JobType.numCores = 8
+        config.JobType.numCores = 2
+        #config.JobType.maxMemoryMB = 16000
+        config.JobType.maxMemoryMB = 5000
+        config.JobType.maxJobRuntimeMin = 180 ## added to be more efficient
         config.JobType.inputFiles = ['PU.txt']
         print(config.General.requestName)
         print(config.Data.inputDataset)
